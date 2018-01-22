@@ -7,6 +7,8 @@
 - [安装jdk](#安装jdk)  
 - [安装tmux](#安装tmux)  
 - [安装mysql](#安装mysql)  
+- [安装git](#安装git)  
+- [安装nginx](#安装nginx)  
 
 ## 配置网络   
 - 执行`nmcli connection show`查看网络列表
@@ -40,6 +42,7 @@
 - 执行`chmod 600 ~/.ssh/authorized_keys`设置权限
 - 配置putty使用私钥登陆
 - 执行`vi /etc/ssh/sshd_config`，配置PasswordAuthentication no可以关闭密码登陆,执行`systemctl restart sshd.service`重启ssh服务生效
+- [返回](#centos知识点)
 
 ## 简单的vi指令 
 - `i`切换到输入模式,`esc`退出
@@ -58,6 +61,7 @@
 ## 安装jdk  
 - 执行`yum search java|grep jdk`查找可用的jdk版本
 - 执行`yum install java-1.8.0-openjdk-devel.x86_64`安装openjdk1.8
+- 执行`javac -version`测试jdk是否安装成功
 - [返回](#centos知识点)
 
 ## 安装mysql  
@@ -74,4 +78,24 @@
 - 执行`CREATE USER 'huhuiyu'@'%' IDENTIFIED BY 'MySQL-123';`添加用户
 - 执行`GRANT ALL ON *.* TO 'huhuiyu'@'%';`用户授权
 - 执行`FLUSH PRIVILEGES;`用户权限立即生效
+- [返回](#centos知识点)
+
+## 安装git  
+- 执行`yum install git`安装git
+- 执行`git --version`测试git是否安装成功
+- [返回](#centos知识点)
+
+## 安装nginx  
+- 执行`vi /etc/yum.repos.d/nginx.repo`编辑nginx下载源，内容如下  
+  [nginx]
+  name=nginx repo
+  baseurl=http://nginx.org/packages/centos/7/$basearch/
+  gpgcheck=0
+  enabled=1  
+- 执行`yum install nginx`安装nginx
+- 执行`systemctl enable nginx`配置nginx服务开机启动
+- 执行`systemctl start nginx`启动nginx
+- 配置文件默认位置  
+  /etc/nginx/nginx.conf  
+  /etc/nginx/conf.d/*.conf  
 - [返回](#centos知识点)
