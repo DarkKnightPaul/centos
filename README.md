@@ -1,1 +1,1 @@
-# centos
+# centos知识点
