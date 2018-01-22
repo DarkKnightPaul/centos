@@ -2,6 +2,7 @@
 - [配置网络](#配置网络)  
 - [防火墙](#防火墙)  
 - [创建用户](#创建用户)  
+- [ssh登陆](#ssh登陆)  
 - [简单的vi指令](#简单的vi指令)  
 - [安装tmux](#安装tmux)  
 - [安装mysql](#安装mysql)  
@@ -29,6 +30,15 @@
 - 执行`su`可以切换到root用户
 - 执行`su huhuiyu`可以切换到huhuiyu用户
 - [返回](#centos知识点)
+
+## ssh登陆  
+- 使用putty的ssh工具生成公钥和私钥
+- 在服务器中创建.ssh目录
+- 执行`chmod 700 ~/.ssh`设置权限
+- 创建~/.ssh/authorized_keys文件，将公钥复制到文件中
+- 执行`chmod 600 ~/.ssh/authorized_keys`设置权限
+- 配置putty使用私钥登陆
+- 执行`vi /etc/ssh/sshd_config`，配置PasswordAuthentication no可以关闭密码登陆,执行`systemctl restart sshd.service`重启ssh服务生效
 
 ## 简单的vi指令 
 - `i`切换到输入模式,`esc`退出
