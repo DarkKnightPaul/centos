@@ -99,7 +99,7 @@
 - 配置文件默认位置  
   /etc/nginx/nginx.conf  
   /etc/nginx/conf.d/*.conf  
-- 通过浏览器打开http://服务器地址测试nginx是否搭建成功
+- 通过浏览器打开`http://服务器地址`测试nginx是否搭建成功
 - [返回目录](#centos知识点)
 
 ## 安装tomcat  
@@ -110,5 +110,5 @@
 - 执行`cd apache-tomcat-8.5.24/bin/`进入tomcat8执行文件目录
 - 执行`./startup.sh`启动tomcat
 - 执行`./shutdown.sh`停止tomcat
-- 通过浏览器打开http://服务器地址:8080测试tomcat是否搭建成功
+- 通过浏览器打开`http://服务器地址:8080`测试tomcat是否搭建成功
 - [返回目录](#centos知识点)
