@@ -9,6 +9,7 @@
 - [安装mysql](#安装mysql)  
 - [安装git](#安装git)  
 - [安装nginx](#安装nginx)  
+- [安装tomcat](#安装tomcat)  
 
 ## 配置网络   
 - 执行`nmcli connection show`查看网络列表
@@ -18,21 +19,21 @@
 - 也可以执行`vi /etc/sysconfig/network-scripts/ifcfg-ens33`来修改网络配置,虚拟机需要配置  
    `BROADCAST=192.168.17.255`,必须是255
    `GATEWAY=192.168.17.2`,必须是2
-- [返回](#centos知识点)
+- [返回目录](#centos知识点)
 
 ## 防火墙   
 - 执行`systemctl status firewalld.service`查看防火墙状态
 - 执行`firewall-cmd --permanent --zone=public --add-port=3306/tcp`添加端口配置
 - 执行`firewall-cmd --permanent --zone=public --remove-port=3306/tcp`移除端口配置
 - 执行`systemctl restart firewalld.service`重启防火墙
-- [返回](#centos知识点)
+- [返回目录](#centos知识点)
 
 ## 创建用户  
 - 执行`adduser huhuiyu`创建用户huhuiyu
 - 执行`passwd huhuiyu`修改用户huhuiyu的密码
 - 执行`su`可以切换到root用户
 - 执行`su huhuiyu`可以切换到huhuiyu用户
-- [返回](#centos知识点)
+- [返回目录](#centos知识点)
 
 ## ssh登陆  
 - 使用putty的ssh工具生成公钥和私钥
@@ -42,12 +43,12 @@
 - 执行`chmod 600 ~/.ssh/authorized_keys`设置权限
 - 配置putty使用私钥登陆
 - 执行`vi /etc/ssh/sshd_config`，配置PasswordAuthentication no可以关闭密码登陆,执行`systemctl restart sshd.service`重启ssh服务生效
-- [返回](#centos知识点)
+- [返回目录](#centos知识点)
 
 ## 简单的vi指令 
 - `i`切换到输入模式,`esc`退出
 - `:wq`保存并退出,`:q!`退出不保存修改
-- [返回](#centos知识点)
+- [返回目录](#centos知识点)
 
 ## 安装tmux  
 - 执行`yum install tmux`安装
@@ -56,13 +57,13 @@
 - 执行`Ctrl+b "` 横向分割窗口 
 - 执行`Ctrl+b %` 竖向分割窗口
 - 执行`Ctrl+b 方向键` 移动到指定方向的窗口
-- [返回](#centos知识点)
+- [返回目录](#centos知识点)
 
 ## 安装jdk  
 - 执行`yum search java|grep jdk`查找可用的jdk版本
 - 执行`yum install java-1.8.0-openjdk-devel.x86_64`安装openjdk1.8
 - 执行`javac -version`测试jdk是否安装成功
-- [返回](#centos知识点)
+- [返回目录](#centos知识点)
 
 ## 安装mysql  
 - 通过网址`https://dev.mysql.com/downloads/repo/yum/`找到mysql的yum安装源
@@ -78,12 +79,12 @@
 - 执行`CREATE USER 'huhuiyu'@'%' IDENTIFIED BY 'MySQL-123';`添加用户
 - 执行`GRANT ALL ON *.* TO 'huhuiyu'@'%';`用户授权
 - 执行`FLUSH PRIVILEGES;`用户权限立即生效
-- [返回](#centos知识点)
+- [返回目录](#centos知识点)
 
 ## 安装git  
 - 执行`yum install git`安装git
 - 执行`git --version`测试git是否安装成功
-- [返回](#centos知识点)
+- [返回目录](#centos知识点)
 
 ## 安装nginx  
 - 执行`vi /etc/yum.repos.d/nginx.repo`编辑nginx下载源，内容如下  
@@ -98,4 +99,16 @@
 - 配置文件默认位置  
   /etc/nginx/nginx.conf  
   /etc/nginx/conf.d/*.conf  
-- [返回](#centos知识点)
+- 通过浏览器打开http://服务器地址测试nginx是否搭建成功
+- [返回目录](#centos知识点)
+
+## 安装tomcat  
+- 必须条件[安装jdk](#安装jdk)
+- 通过网址`https://tomcat.apache.org/`找到合适的tomcat版本下载
+- 执行`wget http://mirrors.shu.edu.cn/apache/tomcat/tomcat-8/v8.5.24/bin/apache-tomcat-8.5.24.tar.gz`下载tomcat8
+- 执行`tar -zxvf apache-tomcat-8.5.24.tar.gz`解压tomcat8
+- 执行`cd apache-tomcat-8.5.24/bin/`进入tomcat8执行文件目录
+- 执行`./startup.sh`启动tomcat
+- 执行`./shutdown.sh`停止tomcat
+- 通过浏览器打开http://服务器地址:8080测试tomcat是否搭建成功
+- [返回目录](#centos知识点)
