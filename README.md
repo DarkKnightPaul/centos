@@ -23,6 +23,7 @@
 
 ## 防火墙   
 - 执行`systemctl status firewalld.service`查看防火墙状态
+- 执行`firewall-cmd --list-all`查看防火墙信息
 - 执行`firewall-cmd --permanent --zone=public --add-port=3306/tcp`添加端口配置
 - 执行`firewall-cmd --permanent --zone=public --remove-port=3306/tcp`移除端口配置
 - 执行`systemctl restart firewalld.service`重启防火墙
@@ -84,6 +85,10 @@
 ## 安装git  
 - 执行`yum install git`安装git
 - 执行`git --version`测试git是否安装成功
+- 强制替换本地版本为远程
+- `git fetch --all`
+- `git reset --hard origin/master`
+- `git pull`
 - [返回目录](#centos知识点)
 
 ## 安装nginx  
