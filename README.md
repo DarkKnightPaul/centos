@@ -112,3 +112,12 @@
 - 执行`./shutdown.sh`停止tomcat
 - 通过浏览器打开`http://服务器地址:8080`测试tomcat是否搭建成功
 - [返回目录](#centos知识点)
+
+## 安装nodejs  
+- 执行`curl --silent --location https://rpm.nodesource.com/setup_9.x | sudo bash -`下载安装源
+- 执行`yum -y install nodejs`安装nodejs
+- 执行`node -v`测试nodejs安装是否成功
+- 执行`npm -v`测试npm安装是否成功
+- 执行`npm install -g cnpm --registry=https://registry.npm.taobao.org`安装cnpm并指定下载源为淘宝国内镜像  
+- 执行`cnpm -v`测试cnpm安装是否成功
+- [返回目录](#centos知识点)
