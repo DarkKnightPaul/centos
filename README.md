@@ -86,9 +86,10 @@
 - 执行`yum install git`安装git
 - 执行`git --version`测试git是否安装成功
 - 强制替换本地版本为远程
-- `git fetch --all`
-- `git reset --hard origin/master`
-- `git pull`
+  `git fetch --all`
+  `git reset --hard origin/master`
+  `git pull`  
+- 执行`git config --global credential.helper store`可以本地存储git账号密码
 - [返回目录](#centos知识点)
 
 ## 安装nginx  
