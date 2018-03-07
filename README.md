@@ -16,25 +16,22 @@
 - 执行`nmcli connection modify ens33 connection.autoconnect yes ipv4.method manual ipv4.address 192.168.17.100 ipv4.gateway 192.168.17.1` 修改网卡配置
 - 执行`systemctl restart network`重启网络服务
 - 执行`nmcli connection show ens33`查看修改后的网卡信息
-- 也可以执行`vi /etc/sysconfig/network-scripts/ifcfg-ens33`来修改网络配置,虚拟机需要配置  
-   `BROADCAST=192.168.17.255`,必须是255
-   `GATEWAY=192.168.17.2`,必须是2
 - [返回目录](#centos知识点)
 
 ## 防火墙   
-- 执行`systemctl status firewalld.service`查看防火墙状态
-- 执行`firewall-cmd --list-all`查看防火墙信息
-- 执行`firewall-cmd --permanent --zone=public --add-port=3306/tcp`添加端口配置
-- 执行`firewall-cmd --permanent --zone=public --remove-port=3306/tcp`移除端口配置
-- 执行`systemctl restart firewalld.service`重启防火墙
-- [返回目录](#centos知识点)
+- 执行`systemctl status firewalld.service`查看防火墙状态  
+- 执行`firewall-cmd --list-all`查看防火墙信息  
+- 执行`firewall-cmd --permanent --zone=public --add-port=3306/tcp`添加端口配置  
+- 执行`firewall-cmd --permanent --zone=public --remove-port=3306/tcp`移除端口配置  
+- 执行`systemctl restart firewalld.service`重启防火墙  
+- [返回目录](#centos知识点)  
 
 ## 创建用户  
-- 执行`adduser huhuiyu`创建用户huhuiyu
-- 执行`passwd huhuiyu`修改用户huhuiyu的密码
-- 执行`su`可以切换到root用户
-- 执行`su huhuiyu`可以切换到huhuiyu用户
-- [返回目录](#centos知识点)
+- 执行`adduser huhuiyu`创建用户huhuiyu  
+- 执行`passwd huhuiyu`修改用户huhuiyu的密码  
+- 执行`su -`可以切换到root用户  
+- 执行`su - huhuiyu`可以切换到huhuiyu用户  
+- [返回目录](#centos知识点)  
 
 ## ssh登陆  
 - 使用putty的ssh工具生成公钥和私钥
@@ -86,18 +83,18 @@
 - 执行`yum install git`安装git
 - 执行`git --version`测试git是否安装成功
 - 强制替换本地版本为远程
-  `git fetch --all`
-  `git reset --hard origin/master`
+  `git fetch --all`  
+  `git reset --hard origin/master`  
   `git pull`  
 - 执行`git config --global credential.helper store`可以本地存储git账号密码
 - [返回目录](#centos知识点)
 
 ## 安装nginx  
 - 执行`vi /etc/yum.repos.d/nginx.repo`编辑nginx下载源，内容如下  
-  [nginx]
-  name=nginx repo
-  baseurl=http://nginx.org/packages/centos/7/$basearch/
-  gpgcheck=0
+  [nginx]  
+  name=nginx repo  
+  baseurl=http://nginx.org/packages/centos/7/$basearch/  
+  gpgcheck=0  
   enabled=1  
 - 执行`yum install nginx`安装nginx
 - 执行`systemctl enable nginx`配置nginx服务开机启动
