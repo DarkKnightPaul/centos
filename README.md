@@ -20,6 +20,7 @@
 
 ## 防火墙   
 - 执行`systemctl status firewalld.service`查看防火墙状态  
+- 执行`systemctl enable firewalld.service`开启防火墙  
 - 执行`firewall-cmd --list-all`查看防火墙信息  
 - 执行`firewall-cmd --permanent --zone=public --add-port=3306/tcp`添加端口配置  
 - 执行`firewall-cmd --permanent --zone=public --remove-port=3306/tcp`移除端口配置  
@@ -75,7 +76,7 @@
 - 执行`mysql -uroot -p`启动命令行，密码就是上一步查看的
 - 执行`ALTER USER 'root'@'localhost' IDENTIFIED BY 'MySQL-123';`修改root默认密码，否则不能执行其它管理命令
 - 执行`CREATE USER 'huhuiyu'@'%' IDENTIFIED BY 'MySQL-123';`添加用户
-- 执行`GRANT ALL ON *.* TO 'huhuiyu'@'%';`用户授权
+- 执行`GRANT ALL ON *.* TO 'huhuiyu'@'%' with grant option;`用户授权
 - 执行`FLUSH PRIVILEGES;`用户权限立即生效
 - [返回目录](#centos知识点)
 
